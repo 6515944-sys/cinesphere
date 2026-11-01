@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CINESPHERE MM</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#08090d;color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:18px 6%;display:flex;
+ justify-content:space-between;align-items:center;
+ background:#101116;border-bottom:1px solid #292a31;
+ position:sticky;top:0;z-index:10;
+}
+.logo{font-size:25px;font-weight:900;color:#e8bd65}
+.logo span{color:white}
+nav a{color:white;text-decoration:none;margin-left:18px}
+.hero{
+ padding:65px 7%;min-height:330px;
+ background:linear-gradient(90deg,#08090d,#17151b,#08090d);
+ display:flex;flex-direction:column;justify-content:center;
+}
+.hero h1{font-size:42px;margin:0 0 12px}
+.hero h1 span{color:#e8bd65}
+.hero p{color:#c2c2c2;line-height:1.7}
+.btn{
+ display:inline-block;background:#d6a94e;color:#111;
+ padding:13px 22px;border-radius:7px;
+ text-decoration:none;font-weight:bold;margin-top:12px;
+ width:max-content;
+}
+.search-area{padding:25px 6%}
+input{
+ width:100%;padding:15px;border-radius:8px;
+ border:1px solid #393943;background:#17181f;
+ color:white;font-size:16px;outline:none;
+}
+section{padding:10px 6% 35px}
+.heading{font-size:23px;margin-bottom:20px}
+.heading span{color:#e8bd65}
+.movies{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.movie{
+ background:#15161d;border:1px solid #292a31;
+ border-radius:10px;overflow:hidden;
+}
+.poster{
+ height:210px;display:flex;align-items:center;
+ justify-content:center;text-align:center;
+ background:linear-gradient(145deg,#35313c,#11131b);
+ color:#e8bd65;font-size:25px;font-weight:bold;
+}
+.movie-info{padding:13px}
+.movie-info h3{margin:0 0 8px;font-size:16px}
+.movie-info p{font-size:13px;color:#aaa}
+.watch{
+ display:block;text-align:center;padding:10px;
+ background:#d6a94e;color:#111;
+ text-decoration:none;border-radius:6px;
+ font-weight:bold;margin-top:12px;
+}
+footer{
+ text-align:center;padding:30px 15px;
+ background:#111218;color:#aaa;margin-top:30px;
+}
+footer a{color:#e8bd65;text-decoration:none}
+@media(max-width:700px){
+ .movies{grid-template-columns:repeat(2,1fr);gap:12px}
+ .poster{height:170px}
+ .hero h1{font-size:32px}
+ nav a{font-size:13px;margin-left:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">CINE<span>SPHERE</span></div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#movies">Movies</a>
+  <a href="https://t.me/CinesphereMM">Telegram</a>
+ </nav>
+</header>
+
+<div class="hero" id="home">
+ <h1>WELCOME TO <span>CINESPHERE</span></h1>
+ <p>Movie ချစ်သူများအတွက် ဇာတ်ကားများကို
+တစ်နေရာတည်းမှာ ရှာဖွေလိုက်ပါ။</p>
+ <a class="btn" href="https://t.me/CinesphereMM">
+  JOIN TELEGRAM
+ </a>
+</div>
+
+<div class="search-area">
+ <input id="search" type="text"
+ placeholder=" Search Movies..."
+ oninput="searchMovies()">
+</div>
+
+<section id="movies">
+ <h2 class="heading">LATEST <span>MOVIES</span></h2>
+ <div class="movies" id="movieList">
+
+  <div class="movie">
+   <div class="poster">CINE<br>01</div>
+   <div class="movie-info">
+    <h3>Movie Title 01</h3>
+    <p>Movie Description</p>
+    <a class="watch" href="https://t.me/CinesphereMM">ကြည့်ရှုရန်</a>
+   </div>
+  </div>
+
+  <div class="movie">
+   <div class="poster">CINE<br>02</div>
+   <div class="movie-info">
+    <h3>Movie Title 02</h3>
+    <p>Movie Description</p>
+    <a class="watch" href="https://t.me/CinesphereMM">ကြည့်ရှုရန်</a>
+   </div>
+  </div>
+
+  <div class="movie">
+   <div class="poster">CINE<br>03</div>
+   <div class="movie-info">
+    <h3>Movie Title 03</h3>
+    <p>Movie Description</p>
+    <a class="watch" href="https://t.me/CinesphereMM">ကြည့်ရှုရန်</a>
+   </div>
+  </div>
+
+  <div class="movie">
+   <div class="poster">CINE<br>04</div>
+   <div class="movie-info">
+    <h3>Movie Title 04</h3>
+    <p>Movie Description</p>
+    <a class="watch" href="https://t.me/CinesphereMM">ကြည့်ရှုရန်</a>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<footer>
+ <h3>CINESPHERE MM</h3>
+ <p>All Movies in One Place</p>
+ <a href="https://t.me/CinesphereMM">Join Our Telegram Channel</a>
+ <p> 2026 CINESPHERE. All Rights Reserved.</p>
+</footer>
+
+<script>
+function searchMovies(){
+ const value=document.getElementById("search").value.toLowerCase();
+ document.querySelectorAll(".movie").forEach(movie=>{
+  movie.style.display=movie.innerText.toLowerCase().includes(value)
+  ?"block":"none";
+ });
+}
+</script>
+
+</body>
+</html>
